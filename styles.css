@@ -1451,6 +1451,202 @@ svg {
   padding: 28px 32px 30px;
 }
 
+.tutorial-section {
+  scroll-margin-top: 96px;
+  padding: 29px 32px 32px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(255, 253, 249, 0.84);
+  box-shadow: 0 18px 55px rgba(44, 47, 41, 0.05);
+}
+
+.tutorial-intro {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin: 21px 0 16px;
+  padding: 15px 17px;
+  border: 1px solid rgba(23, 107, 135, 0.16);
+  border-radius: 8px;
+  background: rgba(233, 242, 237, 0.56);
+}
+
+.tutorial-intro > span {
+  flex: 0 0 auto;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: var(--ink);
+  color: var(--white);
+  font-family: var(--mono);
+  font-size: 8px;
+}
+
+.tutorial-intro p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 10px;
+  line-height: 1.75;
+}
+
+.tutorial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.tutorial-card {
+  position: relative;
+  min-height: 330px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: rgba(255, 253, 249, 0.78);
+  overflow: hidden;
+}
+
+.tutorial-card.recommended {
+  border-color: rgba(232, 93, 63, 0.35);
+  background:
+    linear-gradient(145deg, rgba(232, 93, 63, 0.055), transparent 55%),
+    rgba(255, 253, 249, 0.88);
+}
+
+.tutorial-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.tutorial-number {
+  color: var(--signal);
+  font-family: var(--mono);
+  font-size: 9px;
+}
+
+.tutorial-tag {
+  padding: 4px 7px;
+  border-radius: 9px;
+  background: rgba(23, 43, 58, 0.055);
+  color: var(--ink-soft);
+  font-size: 8px;
+}
+
+.tutorial-card.recommended .tutorial-tag {
+  background: rgba(232, 93, 63, 0.09);
+  color: var(--signal-dark);
+}
+
+.tutorial-card h3 {
+  margin: 19px 0 7px;
+  font-family: "Songti SC", "STSong", serif;
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.tutorial-card > p {
+  min-height: 34px;
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 9px;
+  line-height: 1.7;
+}
+
+.tutorial-card ol {
+  margin: 15px 0;
+  padding-left: 18px;
+  color: var(--ink-soft);
+  font-size: 9px;
+  line-height: 1.7;
+}
+
+.tutorial-card li {
+  margin-bottom: 6px;
+  padding-left: 3px;
+}
+
+.tutorial-card li::marker {
+  color: var(--signal);
+  font-family: var(--mono);
+}
+
+.tutorial-card code {
+  display: block;
+  margin-top: auto;
+  padding: 10px 11px;
+  border-radius: 6px;
+  background: var(--ink);
+  color: rgba(255, 255, 255, 0.74);
+  font-family: var(--mono);
+  font-size: 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tutorial-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 12px;
+  padding-top: 11px;
+  border-top: 1px solid var(--line);
+  color: var(--blue);
+  font-size: 9px;
+  font-weight: 600;
+}
+
+.tutorial-action:hover {
+  color: var(--signal);
+}
+
+.tutorial-action span {
+  font-size: 13px;
+}
+
+.tutorial-check {
+  display: grid;
+  grid-template-columns: 145px 1fr;
+  gap: 20px;
+  align-items: start;
+  margin-top: 14px;
+  padding: 15px 17px;
+  border: 1px dashed var(--line-strong);
+  border-radius: 8px;
+}
+
+.tutorial-check > div {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 10px;
+}
+
+.tutorial-check-icon {
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(36, 113, 88, 0.1);
+  color: var(--success);
+  font-size: 11px;
+}
+
+.tutorial-check ul {
+  margin: 0;
+  padding-left: 16px;
+  color: var(--ink-soft);
+  font-size: 9px;
+  line-height: 1.8;
+}
+
+.tutorial-check li::marker {
+  color: var(--success);
+}
+
 .library-section {
   scroll-margin-top: 96px;
   border: 1px solid var(--line);
@@ -2520,6 +2716,27 @@ svg {
   .process-grid {
     grid-template-columns: 1fr;
     gap: 18px;
+  }
+
+  .tutorial-section {
+    padding: 22px 17px;
+  }
+
+  .tutorial-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tutorial-card {
+    min-height: 0;
+  }
+
+  .tutorial-intro,
+  .tutorial-check {
+    grid-template-columns: 1fr;
+  }
+
+  .tutorial-intro {
+    align-items: flex-start;
   }
 
   .process-grid article,
