@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5f1e8" />
+    <meta
+      name="description"
+      content="面向约百人使用的公开资源链接平台，按题目、文章和代码分类收录外部网站链接。"
+    />
+    <title>ymenmcm · 题目 / 文章 / 代码</title>
+    <link rel="stylesheet" href="./styles.css?v=4" />
+    <script src="./config.js?v=4" defer></script>
+    <script src="./app.js?v=4" defer></script>
+  </head>
+  <body>
+    <div class="paper-noise" aria-hidden="true"></div>
+
+    <div class="app-view" id="appView">
+      <header class="site-header">
+        <a class="brand" href="#top" aria-label="ymenmcm 首页">
+          <span class="brand-mark" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </span>
+          <span>
+            <b>ymenmcm</b>
+            <small>RESOURCE COMMONS</small>
+          </span>
+        </a>
+
+        <nav class="main-nav" aria-label="主导航">
+          <a class="active" href="#submitDesk">分享链接</a>
+          <a href="#library" data-nav-category="problem">题目</a>
+          <a href="#library" data-nav-category="article">文章</a>
+          <a href="#library" data-nav-category="code">代码</a>
+        </nav>
+
+        <div class="header-actions">
+          <span class="session-status public-status">
+            <i></i>
+            <span>公开资源索引</span>
+          </span>
+          <a class="direct-link" href="#submitDesk">
+            发布链接
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </a>
+        </div>
+      </header>
+
+      <div class="page-grid" id="top">
+        <div class="main-column">
+          <section class="intro-block" aria-labelledby="pageTitle">
+            <div>
+              <p class="eyebrow"><span></span> 公共资源索引 / 约 100 人</p>
+              <h1 id="pageTitle">文件放在你的空间，<br />入口留在这里。</h1>
+            </div>
+            <p class="intro-copy">
+              无需上传文件。把你已经公开的网盘、代码仓库或网页链接放进来，
+              所有人都能按题目、文章和代码快速找到资源。
+            </p>
+            <div class="math-orbit" aria-hidden="true">
+              <span class="orbit orbit-one"></span>
+              <span class="orbit orbit-two"></span>
+              <span class="orbit orbit-three"></span>
+              <b>↗</b>
+              <small>URL</small>
+              <i>∞</i>
+            </div>
+          </section>
+
+          <section class="submit-card" id="submitDesk" aria-labelledby="submitTitle">
+            <div class="card-heading">
+              <div>
+                <span class="step-kicker">SHARE A LINK</span>
+                <h2 id="submitTitle">发布公开资源链接</h2>
+              </div>
+              <span class="zero-cost-badge">不占平台存储</span>
+            </div>
+
+            <form id="linkForm">
+              <fieldset class="category-picker">
+                <legend>选择所属分区</legend>
+                <label>
+                  <input type="radio" name="category" value="problem" checked />
+                  <span>
+                    <b>题目</b>
+                    <small>赛题、任务说明、原始要求</small>
+                    <i>01</i>
+                  </span>
+                </label>
+                <label>
+                  <input type="radio" name="category" value="article" />
+                  <span>
+                    <b>文章</b>
+                    <small>论文、报告、说明文档</small>
+                    <i>02</i>
+                  </span>
+                </label>
+                <label>
+                  <input type="radio" name="category" value="code" />
+                  <span>
+                    <b>代码</b>
+                    <small>仓库、源码、运行页面</small>
+                    <i>03</i>
+                  </span>
+                </label>
+              </fieldset>
+
+              <div class="link-fields">
+                <label class="field">
+                  <span>资源标题</span>
+                  <input
+                    id="resourceTitle"
+                    name="resourceTitle"
+                    type="text"
+                    maxlength="100"
+                    placeholder="例如：A 题完整求解代码"
+                    required
+                  />
+                </label>
+
+                <label class="field url-field">
+                  <span>公开链接</span>
+                  <div class="url-input-wrap">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1.6 1.6" />
+                      <path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1.6-1.6" />
+                    </svg>
+                    <input
+                      id="resourceUrl"
+                      name="resourceUrl"
+                      type="url"
+                      inputmode="url"
+                      placeholder="https://..."
+                      autocomplete="url"
+                      required
+                    />
+                  </div>
+                </label>
+              </div>
+
+              <fieldset class="meta-fields">
+                <legend class="sr-only">资源信息</legend>
+                <label class="field compact">
+                  <span>分享者 <em>选填</em></span>
+                  <input
+                    id="uploaderName"
+                    name="uploaderName"
+                    type="text"
+                    maxlength="30"
+                    autocomplete="name"
+                    placeholder="例如：李同学"
+                  />
+                </label>
+                <label class="field compact">
+                  <span>资源说明 <em>选填</em></span>
+                  <input
+                    id="submissionNote"
+                    name="submissionNote"
+                    type="text"
+                    maxlength="120"
+                    placeholder="例如：含运行说明与数据"
+                  />
+                </label>
+              </fieldset>
+
+              <div class="link-notice">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 3 5 6v5c0 4.7 2.8 8.2 7 10 4.2-1.8 7-5.3 7-10V6l-7-3Z" />
+                  <path d="m9 12 2 2 4-4" />
+                </svg>
+                <p>
+                  <strong>链接必须允许所有人访问。</strong>
+                  私人网盘链接、会过期的下载地址或需要登录的页面，访客可能无法打开。
+                </p>
+              </div>
+
+              <p class="form-error upload-error" id="linkError" role="alert"></p>
+
+              <div class="submit-row">
+                <p>平台只收录链接，不保存原始文件。</p>
+                <button class="primary-button" id="submitButton" type="submit">
+                  <span>发布到资料库</span>
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M5 12h14M13 6l6 6-6 6" />
+                  </svg>
+                </button>
+              </div>
+            </form>
+          </section>
+
+          <section class="library-section" id="library" aria-labelledby="libraryTitle">
+            <div class="library-heading">
+              <div>
+                <span class="step-kicker">PUBLIC LIBRARY</span>
+                <h2 id="libraryTitle">公共资源库</h2>
+              </div>
+              <p>所有访客均可浏览和打开</p>
+            </div>
+
+            <div class="library-tabs" role="tablist" aria-label="资源分区">
+              <button class="active" type="button" role="tab" aria-selected="true" data-category="problem">
+                <span>01</span>
+                <b>题目</b>
+                <em id="problemCount">0</em>
+              </button>
+              <button type="button" role="tab" aria-selected="false" data-category="article">
+                <span>02</span>
+                <b>文章</b>
+                <em id="articleCount">0</em>
+              </button>
+              <button type="button" role="tab" aria-selected="false" data-category="code">
+                <span>03</span>
+                <b>代码</b>
+                <em id="codeCount">0</em>
+              </button>
+            </div>
+
+            <div class="library-toolbar">
+              <p id="librarySummary">正在读取题目分区...</p>
+              <button id="refreshRecords" class="refresh-button" type="button">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M20 7v5h-5M4 17v-5h5" />
+                  <path d="M18.3 9A7 7 0 0 0 6 7l-2 3m1.7 5A7 7 0 0 0 18 17l2-3" />
+                </svg>
+                刷新
+              </button>
+            </div>
+            <div class="library-grid" id="libraryGrid" role="tabpanel">
+              <div class="library-empty">
+                <span>∅</span>
+                <p>正在读取公共资源...</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="process-section" id="guidelines" aria-labelledby="processTitle">
+            <div class="section-title-row">
+              <div>
+                <span class="step-kicker">使用方式</span>
+                <h2 id="processTitle">三步分享资源</h2>
+              </div>
+              <p>文件保存在你自己的平台，网站只整理入口。</p>
+            </div>
+            <div class="process-grid">
+              <article>
+                <span class="process-number">01</span>
+                <div class="process-icon">
+                  <svg viewBox="0 0 32 32" aria-hidden="true">
+                    <path d="M7 5h13l5 5v17H7V5Z" />
+                    <path d="M20 5v5h5M11 15h10M11 20h10" />
+                  </svg>
+                </div>
+                <h3>准备公开链接</h3>
+                <p>可使用网盘公开分享页、GitHub 仓库、Pages 网站、Notion 页面等。</p>
+              </article>
+              <article>
+                <span class="process-number">02</span>
+                <div class="process-icon">
+                  <svg viewBox="0 0 32 32" aria-hidden="true">
+                    <path d="M16 26V8m0 0-6 6m6-6 6 6M6 27h20" />
+                  </svg>
+                </div>
+                <h3>选择分区</h3>
+                <p>把链接放入题目、文章或代码分区，并填写标题和简要说明。</p>
+              </article>
+              <article>
+                <span class="process-number">03</span>
+                <div class="process-icon">
+                  <svg viewBox="0 0 32 32" aria-hidden="true">
+                    <path d="M6 16h20M18 8l8 8-8 8" />
+                  </svg>
+                </div>
+                <h3>自由访问</h3>
+                <p>所有访客都能查看和打开链接，原始文件的权限由发布者控制。</p>
+              </article>
+            </div>
+          </section>
+        </div>
+
+        <aside class="side-column">
+          <section class="category-index" aria-labelledby="categoryIndexTitle">
+            <span class="step-kicker">SECTIONS</span>
+            <h2 id="categoryIndexTitle">内容分区</h2>
+            <a href="#library" data-nav-category="problem">
+              <i>01</i>
+              <span><b>题目</b><small>赛题与任务材料</small></span>
+              <em id="problemSideCount">0</em>
+            </a>
+            <a href="#library" data-nav-category="article">
+              <i>02</i>
+              <span><b>文章</b><small>论文与说明文档</small></span>
+              <em id="articleSideCount">0</em>
+            </a>
+            <a href="#library" data-nav-category="code">
+              <i>03</i>
+              <span><b>代码</b><small>源码与运行网站</small></span>
+              <em id="codeSideCount">0</em>
+            </a>
+          </section>
+
+          <section class="limits-card" aria-labelledby="limitsTitle">
+            <div class="limits-art" aria-hidden="true">
+              <span>π</span>
+              <i></i>
+              <b>∞</b>
+            </div>
+            <span class="step-kicker">收录说明</span>
+            <h2 id="limitsTitle">只存入口</h2>
+            <ul>
+              <li><span>平台存储</span><b>不保存文件</b></li>
+              <li><span>文件位置</span><b>发布者自己的网站</b></li>
+              <li><span>访问权限</span><b>必须公开可读</b></li>
+            </ul>
+            <p>这是零文件存储方案。网站保存的只是标题、链接和简短说明。</p>
+          </section>
+
+          <section class="cloud-card">
+            <span class="cloud-dot"></span>
+            <div>
+              <span>链接型资源目录</span>
+              <p>关闭发布者电脑后，链接和站点依然可以访问。</p>
+            </div>
+          </section>
+        </aside>
+      </div>
+
+      <footer class="site-footer">
+        <div class="brand footer-brand">
+          <span class="brand-mark" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </span>
+          <span>
+            <b>ymenmcm</b>
+            <small>RESOURCE COMMONS</small>
+          </span>
+        </div>
+        <p>文件各归其所，知识汇聚一处。</p>
+        <span>公开资源链接平台 · 约 100 人 · 2026</span>
+      </footer>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite" aria-hidden="true">
+      <span class="toast-icon"></span>
+      <div>
+        <strong id="toastTitle">发布成功</strong>
+        <p id="toastText">资源链接已加入公共资料库。</p>
+      </div>
+    </div>
+  </body>
+</html>
