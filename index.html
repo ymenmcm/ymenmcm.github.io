@@ -9,9 +9,9 @@
       content="面向约百人使用的公开资源链接平台，按题目、文章和代码分类收录外部网站链接。"
     />
     <title>ymenmcm · 题目 / 文章 / 代码</title>
-    <link rel="stylesheet" href="./styles.css?v=4" />
-    <script src="./config.js?v=4" defer></script>
-    <script src="./app.js?v=4" defer></script>
+    <link rel="stylesheet" href="./styles.css?v=5" />
+    <script src="./config.js?v=5" defer></script>
+    <script src="./app.js?v=5" defer></script>
   </head>
   <body>
     <div class="paper-noise" aria-hidden="true"></div>
@@ -33,6 +33,7 @@
           <a href="#library" data-nav-category="problem">题目</a>
           <a href="#library" data-nav-category="article">文章</a>
           <a href="#library" data-nav-category="code">代码</a>
+          <a href="#guide">使用教程</a>
         </nav>
 
         <div class="header-actions">
@@ -233,6 +234,86 @@
                 <span>∅</span>
                 <p>正在读取公共资源...</p>
               </div>
+            </div>
+          </section>
+
+          <section class="tutorial-section" id="guide" aria-labelledby="guideTitle">
+            <div class="section-title-row">
+              <div>
+                <span class="step-kicker">HOW TO SHARE</span>
+                <h2 id="guideTitle">如何把文件变成可访问链接</h2>
+              </div>
+              <p>文件不需要上传到本站，只要放在一个公开网页里。</p>
+            </div>
+
+            <div class="tutorial-intro">
+              <span>提示</span>
+              <p>
+                URL 不是一种新的文件格式，而是文件在网络上的访问地址。
+                先把文件上传到公开网盘、GitHub 或其他网页平台，再把获取到的地址提交到上方表单。
+              </p>
+            </div>
+
+            <div class="tutorial-grid">
+              <article class="tutorial-card recommended">
+                <div class="tutorial-card-top">
+                  <span class="tutorial-number">01</span>
+                  <span class="tutorial-tag">最推荐</span>
+                </div>
+                <h3>网盘公开分享</h3>
+                <p>适合 PDF、DOCX、ZIP、数据包和图片，操作最简单。</p>
+                <ol>
+                  <li>把文件上传到 Google Drive、OneDrive、百度网盘等。</li>
+                  <li>点击“分享”，将权限改为“知道链接的人可查看”。</li>
+                  <li>复制分享地址，提交到“题目 / 文章 / 代码”对应分区。</li>
+                </ol>
+                <code>https://你的网盘域名/分享地址</code>
+                <a class="tutorial-action" href="#submitDesk">去发布网盘链接 <span>↗</span></a>
+              </article>
+
+              <article class="tutorial-card">
+                <div class="tutorial-card-top">
+                  <span class="tutorial-number">02</span>
+                  <span class="tutorial-tag">适合整套资料</span>
+                </div>
+                <h3>GitHub Pages</h3>
+                <p>适合论文 PDF、代码项目或需要长期展示的静态网站。</p>
+                <ol>
+                  <li>创建一个公开 GitHub 仓库并上传文件。</li>
+                  <li>进入 Settings → Pages，选择 main 分支根目录。</li>
+                  <li>复制生成的 Pages 地址，提交到本站。</li>
+                </ol>
+                <code>https://用户名.github.io/仓库名/论文.pdf</code>
+                <a class="tutorial-action" href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">查看 GitHub Pages <span>↗</span></a>
+              </article>
+
+              <article class="tutorial-card">
+                <div class="tutorial-card-top">
+                  <span class="tutorial-number">03</span>
+                  <span class="tutorial-tag">适合代码</span>
+                </div>
+                <h3>代码仓库</h3>
+                <p>源码、Notebook 和运行说明可以直接使用仓库地址。</p>
+                <ol>
+                  <li>把项目上传到 GitHub 或 Gitee 公开仓库。</li>
+                  <li>确认仓库无需登录即可访问。</li>
+                  <li>复制仓库主页地址，提交到“代码”分区。</li>
+                </ol>
+                <code>https://github.com/用户名/项目名</code>
+                <a class="tutorial-action" href="https://github.com/new" target="_blank" rel="noopener noreferrer">创建代码仓库 <span>↗</span></a>
+              </article>
+            </div>
+
+            <div class="tutorial-check">
+              <div>
+                <span class="tutorial-check-icon">✓</span>
+                <strong>发布前检查</strong>
+              </div>
+              <ul>
+                <li>用无痕窗口打开链接，确认不用登录也能访问</li>
+                <li>不要提交会过期、只能本人打开或需要提取密码的链接</li>
+                <li>文件名和说明写清楚，方便其他同学辨认版本</li>
+              </ul>
             </div>
           </section>
 
